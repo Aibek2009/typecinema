@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{news.title}}</h2>
+<img src="{{news.image.url}}" width="400px">
+<p><b>{{news.genre}}</b></p>
+<p>{{news.desc}}</p>
+<p>{{news.date}}</p>
+
+
+{% endblock content %}
+

@@ -9,9 +9,11 @@
             </div> {% for mov in movie %} <div class="movie">
                 <div class="movie-image">
                     <span class="play">
+                       <a href="{{mov.get_absolute_url}}"> 
                         <span class="name">{{mov.title}}</span>
+                    </a>
                     </span>
-                    <a href="#">
+                    <a href="{{mov.get_absolute_url}}">
                         <img src="{{mov.image.url}}" alt="" />
                     </a>
                 </div>
@@ -35,7 +37,9 @@
             <div class="movie">
                 <div class="movie-image">
                     <span class="play">
-                        <span class="name">{{mvc.title}}</span>
+                        <a href="{{mvc.get_absolute_url}}">  
+                            <span class="name">{{mvc.title}}</span>
+                        </a>
                     </span>
                     <a href="#">
                         <img src="{{mvc.image.url}}" alt="" />
@@ -60,24 +64,14 @@
                 <a href="#">See all</a>
             </p>
         </div>
+        {% for new in news %}
         <div class="content">
-            <p class="date">12.04.09</p>
-            <h4>Disney's A Christmas Carol</h4>
-            <p>&quot;Disney's A Christmas Carol,&quot; a multi-sensory thrill ride re-envisioned by Academy Award&reg;-winning filmmaker Robert Zemeckis, captures... </p>
-            <a href="#">Read more</a>
-        </div>
-        <div class="content">
-            <p class="date">11.04.09</p>
-            <h4>Where the Wild Things Are</h4>
-            <p>Innovative director Spike Jonze collaborates with celebrated author Maurice Sendak to bring one of the most beloved books of all time to the big screen in &quot;Where the Wild Things Are,&quot;...</p>
-            <a href="#">Read more</a>
-        </div>
-        <div class="content">
-            <p class="date">10.04.09</p>
-            <h4>The Box</h4>
-            <p>Norma and Arthur Lewis are a suburban couple with a young child who receive an anonymous gift bearing fatal and irrevocable consequences.</p>
-            <a href="#">Read more</a>
-        </div>
+            <p class="date">{{new.date|date:"Y:m:d" }}</p>
+            <h4>{{new.title}}</h4>
+            <p>&quot;{{new.desc|truncatewords:8}} </p>
+            <a href="{{new.get_absolute_url}}">дальше</a>
+        </div> 
+        {% endfor %}
     </div>
     <div id="coming">
         <div class="head">
@@ -87,23 +81,16 @@
                 <a href="#">See all</a>
             </p>
         </div>
+        {% for nc in news_com %}
         <div class="content">
-            <h4>The Princess and the Frog </h4>
+            <h4>{{nc.title}} </h4>
             <a href="#">
-                <img src="css/images/coming-soon1.jpg" alt="" />
+                <img src="{{nc.image.url}}" alt="" />
             </a>
-            <p>Walt Disney Animation Studios presents the musical &quot;The Princess and the Frog,&quot; an animated comedy set in the great city of New Orleans...</p>
+            <p>{{nc.desc}}</p>
             <a href="#">Read more</a>
-        </div>
-        <div class="cl">&nbsp;</div>
-        <div class="content">
-            <h4>The Princess and the Frog </h4>
-            <a href="#">
-                <img src="css/images/coming-soon2.jpg" alt="" />
-            </a>
-            <p>Walt Disney Animation Studios presents the musical &quot;The Princess and the Frog,&quot; an animated comedy set in the great city of New Orleans...</p>
-            <a href="#">Read more</a>
-        </div>
+        </div> 
+        {% endfor %}
     </div>
     <div class="cl">&nbsp;</div>
 </div> {% endblock content %}

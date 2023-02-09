@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{contact.phone1}}
+<br>
+{{contact.phone2}}
+<br>
+<a href="{{contact.address_link}}">{{contact.address}}</a>
+<br>
+{{contact.address_map|safe}}
+
+{% endblock content %}

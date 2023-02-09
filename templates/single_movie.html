@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{movie.title}}</h2>
+<img src="{{movie.image.url}}" width="400px">
+<p><b>{{movie.country}}</b></p>
+<p>{{movie.year}}</p>
+{% if movie.url_trailer is not None %}
+
+<p>{{movie.url_trailer|safe}}</p>
+{% endif %}
+
+
+{% endblock content %}
